@@ -43,13 +43,19 @@ const App = () => {
   }
 
 
+  const onDiscardClick=()=>{
+    setIsNewNote(false);
+    setSelectedN(-1);
+  }
+
+
   const onNoteClick = (index) => {
     if (index !== selectedN)
       setSelectedN(index);
     setIsNewNote(false);
   }
 
-  const OnAddNoteClick = () => {
+  const onAddNoteClick = () => {
     setSelectedN(-1);
     setIsNewNote(true);
     setEmptyNote({
@@ -65,8 +71,8 @@ const App = () => {
     <div className='container'>
       <div className='notes-app'>
         <SideBar categories={data} selected={selectedC} onSelectCategory={setSelectedCategory} />
-        <NotesList notes={data[selectedC].notes} selected={selectedN} onSelectNote={onNoteClick} onAddButtonClick={OnAddNoteClick} />
-        <NoteEdit note={editNote} onSaveClick={onSaveClick} onDeleteClick={onDeleteClick} isNew={isNewNote} />
+        <NotesList notes={data[selectedC].notes} selected={selectedN} onSelectNote={onNoteClick} onAddButtonClick={onAddNoteClick} />
+        <NoteEdit note={editNote} onSaveClick={onSaveClick} onDeleteClick={onDeleteClick} onDiscardClick={onDiscardClick} isNew={isNewNote} />
       </div>
     </div>
   )

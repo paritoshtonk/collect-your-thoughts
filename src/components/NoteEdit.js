@@ -5,7 +5,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 
-const NoteEdit = ({ note, onSaveClick, isNew, onDeleteClick }) => {
+const NoteEdit = ({ note, onSaveClick, isNew, onDeleteClick,onDiscardClick }) => {
     const [noteTitle, setNoteTitle] = React.useState("");
     const [noteId, setNoteId] = React.useState(-1);
     const [editorState, setEditorState] = React.useState(EditorState.createEmpty());
@@ -37,7 +37,6 @@ const NoteEdit = ({ note, onSaveClick, isNew, onDeleteClick }) => {
             <div className="panel">
                 <div className="left-panel">
                     {newLabel()}
-
                 </div>
                 <div className="right-panel">
                     <div className='buttons'>
@@ -48,7 +47,14 @@ const NoteEdit = ({ note, onSaveClick, isNew, onDeleteClick }) => {
                                 }}
                                 className='button delete-button'>
                                 Delete
-                            </button> : null}
+                            </button> : <button
+                                onClick={() => {
+                                    onDiscardClick();
+                                }}
+                                className='button discard-button'>
+                                Discard
+                            </button>}
+                            
                         <button
                             onClick={() => {
                                 let html = draftToHtml(convertToRaw(editorState.getCurrentContent()))

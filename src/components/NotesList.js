@@ -34,7 +34,7 @@ const NotesList = ({ notes, selected, onSelectNote, onAddButtonClick }) => {
                             ></div>
                         )
                     })
-                    : <div className="empty-notes-list">
+                    : <div className="empty-notes-list" onClick={onAddButtonClick}>
                         <VscEmptyWindow class="empty-notes-list-icon" size="5em" />
                         <div class="empty-notes-list-text">Click on add button to add a note</div>
                     </div>
