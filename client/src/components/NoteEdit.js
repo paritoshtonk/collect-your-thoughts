@@ -24,7 +24,7 @@ const NoteEdit = ({ note, onSaveClick, isNew, onDeleteClick }) => {
             setNoteTitle(note.title);
             setEditorState(EditorState.createWithContent(ContentState.createFromBlockArray(htmlToDraft(note.html))));
         }
-    })
+    }, [note, noteId])
     const newLabel = () => {
         if (isNew)
             return <div className="label">new</div>;

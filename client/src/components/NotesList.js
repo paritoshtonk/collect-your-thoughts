@@ -35,18 +35,18 @@ const NotesList = ({ notes, selected, onSelectNote, onAddButtonClick }) => {
                         )
                     })
                     : <div className="empty-notes-list">
-                        <VscEmptyWindow class="empty-notes-list-icon" size="5em" />
-                        <div class="empty-notes-list-text">Click on add button to add a note</div>
+                        <VscEmptyWindow className="empty-notes-list-icon" size="5em" />
+                        <div className="empty-notes-list-text">Click on add button to add a note</div>
                     </div>
             }
-            {notes.length > 0?<div style={{ "height": "70px" }}></div>:null}
+            {notes.length > 0 ? <div style={{ "height": "70px" }}></div> : null}
         </>
     }
 
     return (
         <div className='note-list'>
             <Search searchTextChange={searchTextChange} />
-            <div class="note-list-container">
+            <div className="note-list-container">
                 {
                     getListContent()
                 }
